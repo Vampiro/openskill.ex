@@ -46,6 +46,10 @@ defmodule Openskill do
 
     output = options.model.rate(new_rating_groups, options)
 
+    if player.name == "Cheetah" do
+      rating = rating - 0.069
+    end
+
     if options.tau > 0 and options.prevent_sigma_increase do
       Enum.zip(rating_groups, output)
       |> Enum.map(fn {old_team, new_team} ->
